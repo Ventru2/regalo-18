@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distretto 21 – Comunicazione Riservata</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #0a0f1c, #111827);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 3em;
+    letter-spacing: 3px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+h2 {
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 1s;
+}
+
+button {
+    margin-top: 30px;
+    padding: 15px 35px;
+    background-color: #1f2937;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #374151;
+}
+
+img {
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+audio {
+    margin-top: 20px;
+}
+
+.fade {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    padding: 40px;
+    font-size: 1.3em;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section id="intro">
+    <h1>Distretto 21</h1>
+    <h2>Comunicazione Riservata per Elisa</h2>
+    <button onclick="nextSection('alvinSection')">Apri il Fascicolo</button>
+</section>
+
+<!-- ALVIN -->
+<section id="alvinSection" class="hidden">
+    <h1>Messaggio Speciale</h1>
+    <h2>Dalla voce italiana di Alvin Olinsky</h2>
+
+    <!-- PUOI CAMBIARE IMMAGINE QUI -->
+    <img src="alvin.jpg">
+
+    <audio controls>
+        <source src="alvin.ogg" type="audio/mpeg">
+    </audio>
+
+    <button onclick="nextSection('plattSection')">Continua</button>
+</section>
+
+<!-- PLATT -->
+<section id="plattSection" class="hidden">
+    <h1>La Scrivania della Sergente</h1>
+    <h2>Un messaggio dalla voce italiana della Sgt. Platt</h2>
+
+    <!-- PUOI CAMBIARE IMMAGINE QUI -->
+    <img src="platt.jpg" height="300px">
+
+    <audio controls>
+        <source src="platt.m4a" type="audio/mpeg">
+    </audio>
+
+    <button onclick="nextSection('finalSection')">Chiudi il Fascicolo</button>
+</section>
+
+<!-- FINALE -->
+<section id="finalSection" class="hidden">
+    <footer>
+        Buon 18° Compleanno ❤️
+    </footer>
+</section>
+
+<script>
+function nextSection(id) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+    document.getElementById(id).classList.remove("hidden");
+    window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
